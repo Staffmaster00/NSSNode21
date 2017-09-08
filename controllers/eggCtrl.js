@@ -1,9 +1,6 @@
 'use strict';
-const { readFile } = require('fs');
-
+const { sendFile } = require('fs');
+const { join } = require('path')
 module.exports.getOrTheEgg = (req, res, next) => {
-    readFile('../templates/egg.html', (err, data)=>{
-        if (err) next(err);
-        res.send(data);
-    });
+    res.sendFile(join(__dirname, '../templates/egg.html'));
 };

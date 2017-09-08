@@ -3,11 +3,8 @@
 const { Router } = require('express');
 const router = Router();
 
-// router.use(require('./egg'));
-// router.use(require('./chickens'));
-
-router.use('/see-our-chickens', require('./chickens'));
-router.use('/see-our-eggs', require('./egg'));
+router.use(require('./chickens'));
+router.use(require('./egg'));
 
 router.get('/', (req, res) => {
   res.json({

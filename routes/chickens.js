@@ -4,4 +4,6 @@ const router = Router();
 
 const { getTheChicken } = require('../controllers/chickenCtrl.js');
 
-router.get('../templates/chickens.html', getTheChicken)
+router.get('/see-our-chickens', getTheChicken);
+
+module.exports = router;
