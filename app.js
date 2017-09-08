@@ -3,20 +3,20 @@
 let express = require('express');
 let app = express();
 require('dotenv').config();
-
 let routes = require('./routes/');
+
 const logParams = (req, res, next) => {
     console.log(`req params`, req.params);
     next();
 }
 
 app.use(logParams);
-app.use(`http://localhost:8080/`, routes);
+app.use(`/`, routes);
 
 app.use((req, res, next)=>{
     let err = new Error('Not Found! Go find the eggs!');
     err.status = 404;
-    next();
+    next(err);
 });
 
 app.use((err, req, res, next)=>{
